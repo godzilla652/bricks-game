@@ -9,7 +9,7 @@ function sizer(){
 document.addEventListener('DOMContentLoaded', controls)
 function controls(){
   let controls_link = document.getElementById('controls')
-  let controls_info_string = "p - up     l - left     ; - down     "+"'"+ " - right"
+  let controls_info_string = "p - up"+'          '+"l - left"+'          '+"; - down"+'          '+"'- right"+'          '+"SPACE - START"
   controls_link.onclick = function(){
     alert(controls_info_string)
   }
@@ -1026,6 +1026,16 @@ document.addEventListener('DOMContentLoaded', game)
       }
       if(event.keyCode == 222){
         moveright()
+      }
+      if(event.keyCode == 32){
+        clearInterval(startInterval);
+        started = false
+      }
+    }
+    else if(started == false){
+      if(event.keyCode ==32){
+        startInterval = setInterval(gameProcess, 300)
+        started = true
       }
     }
     else{return}
